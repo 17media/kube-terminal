@@ -16,7 +16,9 @@ RUN         apk --no-cache add --virtual .build-deps \
                 curl \
                 nano \
                 busybox-suid \
-                bind-tools && \
+                bind-tools \
+                htop \
+                nmap && \
             apk --no-cache add --virtual .run-deps -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
                 kubernetes && \
             apk --no-cache add --virtual .run-deps \
