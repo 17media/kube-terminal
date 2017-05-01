@@ -12,6 +12,7 @@ RUN         apk --no-cache add --virtual .build-deps \
             pip install --no-cache-dir butterfly[themes] && \
             apk --no-cache add --virtual .run-deps \
                 libstdc++ \
+                libffi \
                 ca-certificates \
                 curl \
                 nano \
