@@ -13,20 +13,21 @@ RUN         apk --no-cache add --virtual .build-deps \
             apk --no-cache add --virtual .run-deps \
                 libstdc++ \
                 libffi \
-                ca-certificates \
-                curl \
-                nano \
                 busybox-suid \
-                bind-tools \
-                htop \
-                nmap && \
-            apk --no-cache add --virtual .run-deps -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
-                kubernetes && \
-            apk --no-cache add --virtual .run-deps \
+                ca-certificates \
                 zsh && \
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" && \
             apk del .build-deps
 COPY        .zshrc /root/.zshrc
+
+RUN         apk --no-cache add \
+                curl \
+                nano \
+                bind-tools \
+                htop \
+                nmap && \
+            apk --no-cache add --virtual .run-deps -X http://dl-cdn.alpinelinux.org/alpine/edge/testing \
+                kubernetes
 
 VOLUME      /etc/butterfly/ssl
 
