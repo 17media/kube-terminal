@@ -28,6 +28,8 @@ RUN         apk --no-cache add --virtual .build-deps \
             apk del .build-deps
 COPY        .zshrc /root/.zshrc
 
+VOLUME      /etc/butterfly/ssl
+
 EXPOSE      8000/tcp
 
 COPY        entrypoint.sh /
